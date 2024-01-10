@@ -53,11 +53,31 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData () {
-        //code for test here
+        Job job7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String testString = System.lineSeparator() +
+                "ID: " + job7.getId() + "\n" +
+                "Name: " + job7.getName() + "\n" +
+                "Employer: " + job7.getEmployer() + "\n" +
+                "Location: " + job7.getLocation() + "\n" +
+                "Position Type: " + job7.getPositionType() + "\n" +
+                "Core Competency: " + job7.getCoreCompetency() +
+                System.lineSeparator();
+        String compareString = job7.toString();
+        assertEquals(testString, compareString);
     }
 
     @Test
     public void testToStringHandlesEmptyField () {
-        //code for test here
+        Job job8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
+        String testString = System.lineSeparator() +
+                "ID: " + job8.getId() + "\n" +
+                "Name: " + job8.getName() + "\n" +
+                "Employer: " + "Data not available" + "\n" +
+                "Location: " + job8.getLocation() + "\n" +
+                "Position Type: " + "Data not available" + "\n" +
+                "Core Competency: " + job8.getCoreCompetency() +
+                System.lineSeparator();
+        String compareString = job8.toString();
+        assertEquals(testString, compareString);
     }
 }
